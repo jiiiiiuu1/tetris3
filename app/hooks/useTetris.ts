@@ -191,20 +191,6 @@ export const useTetris = () => {
     spawnPiece();
   };
 
-  const holdPiece = () => {
-    if (!activePiece || !canHold || gameOver || isPaused) return;
-
-    const currentType = activePiece.type;
-    if (holdPieceType === null) {
-      setHoldPieceType(currentType);
-      spawnPiece();
-    } else {
-      const nextType = holdPieceType;
-      setHoldPieceType(currentType);
-      spawnPiece(nextType);
-    }
-    setCanHold(false);
-  };
 
   const startGame = () => {
     setGrid(Array.from({ length: ROWS }, () => Array(COLS).fill(null)));
